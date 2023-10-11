@@ -14,6 +14,11 @@ app.get('/', (req, res) => {
     // res.status(201).send("<h1> Hello World </h1>")
 })
 
+app.get("/api/v1/:token", (req, res) => {
+    console.log(req.params.token)
+    res.status(200).json({ param: req.params.token })
+})
+
 app.get('/api/v1/instagram', (req, res) => {
     let pankaj = {
         name: "Pankaj",
@@ -21,7 +26,7 @@ app.get('/api/v1/instagram', (req, res) => {
         followers: "100",
         following: "1010",
         posts: "5",
-        date: format.asString("hh:mm:ss", new Date())
+        date: format.asString("dd-MM-yy-hh:mm:ss", new Date())
     }
     res.status(200).send(pankaj)
 })
